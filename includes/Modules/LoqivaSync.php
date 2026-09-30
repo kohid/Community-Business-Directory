@@ -51,9 +51,9 @@ class LoqivaSync {
 
 	/** Default feed URLs (resolved from the InvernessBID links). Overridable via options. */
 	private const DEFAULT_URLS = [
-		'business' => 'https://inverness.loqiva.com/public/api/business/json/token/ejo7kEn06eEFOZw6IZrm0MdHnJynsZ4fBGzpC2aFaSbB83icKMPNX4CeMWi7NJXP',
-		'rewards'  => 'https://inverness.loqiva.com/public/api/rewards/json/token/r52e0ouCk1X77rbYqzMwM5lD8pyRXhZpEbuWcOMjDGlnwjk7hTSPCeaW4WDP1Ttu',
-		'events'   => 'https://inverness.loqiva.com/public/api/events/json/token/OvD2VzHv8IcKSk3gY8sUYVrmU7MygbUZoEVyAgKXfStLmyAAh14ZrEihnfkTN7Bh',
+		'business' => '',
+		'rewards'  => '',
+		'events'   => '',
 	];
 
 	/** Once a remote image fetch fails we stop trying for the rest of the run. */
