@@ -1,0 +1,221 @@
+/* ==========================================================================
+   Emoji Picker (ported from WorkSpace theme) — themed to the plugin's
+   Metronic tokens (--cbd-*). Standalone stylesheet.
+   ========================================================================== */
+
+.ws-emoji-picker {
+    position: fixed;
+    z-index: 100001;
+    width: 360px;
+    max-height: 440px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+    color: var(--cbd-ink, #181c32);
+    border: 1px solid var(--cbd-border-strong, #e4e6ef);
+    border-radius: var(--cbd-radius-lg, 1rem);
+    box-shadow: var(--cbd-shadow-lg, 0 12px 40px rgba(0, 0, 0, 0.18));
+    font-family: var(--cbd-font-body, 'Inter', sans-serif);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ws-emoji-picker__head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--cbd-border, #eff2f5);
+    flex-shrink: 0;
+}
+
+.ws-emoji-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    background: var(--cbd-surface-2, #eff2f5);
+    border-radius: var(--cbd-radius, .625rem);
+    color: var(--cbd-ink-muted, #a1a5b7);
+    cursor: text;
+}
+.ws-emoji-search input {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    font: inherit;
+    font-size: 14px;
+    color: var(--cbd-ink, #181c32);
+    min-width: 0;
+}
+.ws-emoji-search input::placeholder { color: var(--cbd-ink-muted, #a1a5b7); }
+
+.ws-emoji-tone-btn,
+.ws-emoji-close {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--cbd-ink, #181c32);
+    font-size: 16px;
+    line-height: 1;
+    transition: background 0.12s ease;
+}
+.ws-emoji-tone-btn { font-size: 20px; }
+.ws-emoji-tone-btn:hover,
+.ws-emoji-close:hover { background: var(--cbd-surface-2, #eff2f5); }
+.ws-emoji-tone-glyph { display: inline-block; line-height: 1; }
+
+.ws-emoji-tone-menu {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 10;
+    display: flex;
+    gap: 2px;
+    padding: 4px;
+    background: #fff;
+    border: 1px solid var(--cbd-border-strong, #e4e6ef);
+    border-radius: 10px;
+    box-shadow: var(--cbd-shadow-lg, 0 6px 20px rgba(0, 0, 0, 0.12));
+}
+.ws-emoji-tone-menu[hidden] { display: none; }
+.ws-emoji-tone-opt {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+}
+.ws-emoji-tone-opt:hover { background: var(--cbd-surface-2, #eff2f5); }
+.ws-emoji-tone-opt.is-active {
+    background: var(--cbd-primary-light, #f1faff);
+    box-shadow: inset 0 0 0 2px var(--cbd-primary, #009ef7);
+}
+
+.ws-emoji-tabs {
+    display: flex;
+    align-items: center;
+    background: var(--cbd-surface, #f5f8fa);
+    border-bottom: 1px solid var(--cbd-border, #eff2f5);
+    flex-shrink: 0;
+}
+.ws-emoji-tab {
+    flex: 1;
+    height: 40px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    border-bottom: 2px solid transparent;
+    transition: background 0.1s ease, border-color 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.ws-emoji-tab img {
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+}
+.ws-emoji-tab:hover { background: rgba(0, 0, 0, 0.04); }
+.ws-emoji-tab.is-active { border-bottom-color: var(--cbd-primary, #009ef7); }
+
+.ws-emoji-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 8px 12px 14px;
+    scroll-behavior: smooth;
+}
+.ws-emoji-body::-webkit-scrollbar { width: 8px; }
+.ws-emoji-body::-webkit-scrollbar-thumb {
+    background: var(--cbd-border-strong, #cfd2d7);
+    border-radius: 4px;
+}
+
+.ws-emoji-section {
+    margin: 8px 4px 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cbd-ink-muted, #65676b);
+    letter-spacing: 0.01em;
+}
+
+.ws-emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2px;
+}
+.ws-emoji-item {
+    aspect-ratio: 1 / 1;
+    border: 0;
+    background: transparent;
+    width: 39px;
+    height: 39px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.1s ease, transform 0.05s ease;
+}
+.ws-emoji-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+.ws-emoji-glyph {
+    font-size: 22px;
+    line-height: 1;
+    pointer-events: none;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Twemoji Mozilla", emoji, sans-serif;
+}
+.ws-emoji-item:hover { background: var(--cbd-surface-2, #eff2f5); }
+.ws-emoji-item:active { transform: scale(0.92); }
+
+.ws-emoji-empty {
+    text-align: center;
+    padding: 28px 16px;
+    color: var(--cbd-ink-muted, #65676b);
+    font-size: 14px;
+}
+
+.ws-emoji {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: -0.22em;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .ws-emoji-picker {
+        width: calc(100vw - 16px) !important;
+        max-width: 360px;
+        max-height: 60vh;
+    }
+}
+
+/* Theme-override armor — host themes/Elementor style generic <button>/<input>
+   with their own accent; the picker lives on <body> so re-assert its look. */
+.ws-emoji-picker button { font-family: inherit !important; text-transform: none !important; box-shadow: none !important; text-shadow: none; min-height: 0 !important; letter-spacing: normal; }
+.ws-emoji-tone-btn, .ws-emoji-close, .ws-emoji-item, .ws-emoji-tone-opt { background: transparent !important; border: 0 !important; }
+.ws-emoji-tab { background: transparent !important; border: 0 solid transparent !important; border-bottom-width: 2px !important; }
+.ws-emoji-tab.is-active { border-bottom-color: var(--cbd-primary, #009ef7) !important; }
+.ws-emoji-tab:hover, .ws-emoji-item:hover, .ws-emoji-tone-opt:hover,
+.ws-emoji-tone-btn:hover, .ws-emoji-close:hover { background: var(--cbd-surface-2, #eff2f5) !important; }
+.ws-emoji-tone-opt.is-active { background: var(--cbd-primary-light, #f1faff) !important; box-shadow: inset 0 0 0 2px var(--cbd-primary, #009ef7) !important; }
+.ws-emoji-search input { background: transparent !important; border: 0 !important; box-shadow: none !important; outline: 0 !important; }
