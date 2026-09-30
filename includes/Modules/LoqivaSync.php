@@ -49,7 +49,7 @@ class LoqivaSync {
 	/** Records processed per admin progress tick (kept small — images are slow). */
 	private const TICK_BATCH = 4;
 
-	/** Default feed URLs (resolved from the InvernessBID links). Overridable via options. */
+	/** Default feed URLs. Intentionally empty — tokenised URLs must never be committed; set them under Love Inverness → Feed URLs (stored in cbd_loqiva_url_* options). */
 	private const DEFAULT_URLS = [
 		'business' => '',
 		'rewards'  => '',

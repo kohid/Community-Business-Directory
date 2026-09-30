@@ -1658,7 +1658,7 @@ class AdminController {
 		echo '<details style="margin-top:1.5em;max-width:760px;"><summary style="cursor:pointer;font-weight:600;">' . esc_html__( 'Feed URLs (advanced)', 'community-business-directory' ) . '</summary>';
 		echo '<form method="post" style="margin-top:1em;">';
 		wp_nonce_field( 'cbd_loqiva_urls' );
-		echo '<p class="description">' . esc_html__( 'These are the public token URLs supplied by InvernessBID. Update them here if the tokens are rotated.', 'community-business-directory' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'Paste the private token URLs supplied by InvernessBID. They are stored in the database only, never in the code.', 'community-business-directory' ) . '</p>';
 		foreach ( [ 'business' => __( 'Business Profiles', 'community-business-directory' ), 'rewards' => __( 'Offers', 'community-business-directory' ), 'events' => __( 'Events', 'community-business-directory' ) ] as $type => $label ) {
 			echo '<p><label><strong>' . esc_html( $label ) . '</strong><br>';
 			echo '<input type="url" name="cbd_loqiva_url_' . esc_attr( $type ) . '" value="' . esc_attr( \CBD\Modules\LoqivaSync::url( $type ) ) . '" style="width:100%;max-width:720px;"></label></p>';

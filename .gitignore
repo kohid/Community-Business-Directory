@@ -5,3 +5,8 @@ vendor/
 *.log
 .env
 .claude/settings.local.json
+
+# AI tooling / local config
+.agents/
+.claude/skills/
+skills-lock.json
