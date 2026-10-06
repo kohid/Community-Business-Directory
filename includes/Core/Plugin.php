@@ -44,6 +44,7 @@ final class Plugin {
 			$this->register_assets();
 			$this->register_admin_guard();
 			$this->register_socmed();
+			( new GitHubUpdater() )->register( $this->loader );
 
 			if ( is_admin() ) {
 				$this->register_admin();

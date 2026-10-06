@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       Community Business Directory
- * Plugin URI:        https://github.com/your-agency/community-business-directory
+ * Plugin URI:        https://github.com/kohid/Community-Business-Directory
  * Description:       A full-featured business directory — registration, events, promotions, reviews, dashboard and more.
- * Version:           2.1.0
+ * Version:           2.7.0
  * Requires at least: 6.4
  * Requires PHP:      8.0
  * Author:            Your Agency
